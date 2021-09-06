@@ -24,7 +24,7 @@ router.post('/',validator(validate) ,async(req, res,next) => {
                 return res.status(400).json({'error':'Incorrect name or password'})
             }
           const token =       jwt.sign({name:req.body.name,password:req.body.password},config.get('jwtPrivateKey'));
-            res.send(token);
+            res.send({'token':token});
         });
     }).catch((err)=>{
         next(err);
