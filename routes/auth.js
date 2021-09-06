@@ -16,12 +16,12 @@ router.post('/',validator(validate) ,async(req, res,next) => {
 
         request.input('Name',sql.VarChar(50),req.body.name)
         .input('Password',sql.VarChar(50), req.body.password)
-        .query(`select * from dbo.Aims_Users  where name=@Name `,function(err,data){
+        .query(`select * from dbo.Aims_Users where name=@Name `,function(err,data){
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if(resultLength ==0){
                 
-                return res.status(400).send('Incorrect name or password')
+                return res.status(400).json({'error':'Incorrect name or password'})
             }
           const token =       jwt.sign({name:req.body.name,password:req.body.password},config.get('jwtPrivateKey'));
             res.send(token);

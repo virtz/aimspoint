@@ -20,7 +20,7 @@ router.post('/',auth,validator(validate),async(req, res,next)=>{
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
-               return res.status(404).send('Data not found')
+            return res.status(404).json({'error':'Data not found'})
 
             res.send(data.recordset);
         });
