@@ -27,7 +27,7 @@ app.use('/api/assetsubcategory',asset_subcategory);
 app.use('/api/assettype',asset_type);
 app.use('/api/assetname',asset_name);
 app.use('/api/parameters',parameter_setup);
-app.use('/api/parameters',user_controller);
+app.use('/api/control',user_controller);
 app.use('/api/datacapture',data_capture);
 app.use(error);
 }
