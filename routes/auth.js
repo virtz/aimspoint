@@ -16,7 +16,7 @@ router.post('/',validator(validate) ,async(req, res,next) => {
 
         request.input('Name',sql.VarChar(50),req.body.name)
         .input('Password',sql.VarChar(50), req.body.password)
-        .query(`select * from dbo.Aims_Users where name=@Name `,function(err,data){
+        .query(`select * from dbo.Aims_Users where loginName=@Name and password=@Password`,function(err,data){
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if(resultLength ==0){
