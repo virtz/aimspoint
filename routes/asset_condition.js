@@ -9,7 +9,7 @@ const validator = require('../middleware/validate');
 const Joi = require('joi');
 // const connect = require('../db');
 
-router.post('/',auth,async(req, res,next)=>{
+router.get('/',auth,async(req, res,next)=>{
     sql.connect(serverconfig).then(()=>{
         // connect();
         var request = new sql.Request();
