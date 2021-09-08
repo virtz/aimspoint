@@ -10,6 +10,7 @@ const asset_name = require('../routes/asset_name');
 const parameter_setup = require('../routes/parameter_setup');
 const user_controller = require('../routes/user_controller');
 const data_capture = require('../routes/data_capture');
+const conditions = require('../routes/asset_condition');
 const helmet = require('helmet');
 const Joi = require('joi');
 const error = require('../middleware/error');
@@ -29,5 +30,6 @@ app.use('/api/assetname',asset_name);
 app.use('/api/parameters',parameter_setup);
 app.use('/api/control',user_controller);
 app.use('/api/datacapture',data_capture);
+app.use('/api/condition',conditions);
 app.use(error);
 }
