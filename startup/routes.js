@@ -11,6 +11,7 @@ const parameter_setup = require('../routes/parameter_setup');
 const user_controller = require('../routes/user_controller');
 const data_capture = require('../routes/data_capture');
 const conditions = require('../routes/asset_condition');
+const site_issues = require('../routes/site_issues');
 const helmet = require('helmet');
 const Joi = require('joi');
 const error = require('../middleware/error');
@@ -31,5 +32,6 @@ app.use('/api/parameters',parameter_setup);
 app.use('/api/control',user_controller);
 app.use('/api/datacapture',data_capture);
 app.use('/api/condition',conditions);
+app.use('/api/siteissues',site_issues);
 app.use(error);
 }
