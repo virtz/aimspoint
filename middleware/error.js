@@ -1,4 +1,4 @@
 
 module.exports = function(err,req,res,next){
-    res.status(500).send({'error':'Someting failed'});
+    res.status(500).send({'error':err});
 }

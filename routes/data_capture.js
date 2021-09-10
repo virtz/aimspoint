@@ -82,8 +82,8 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
         });
         });
     }).catch((err)=>{
-        // next(err);
-        res.send({"error":err});
+        next(err);
+        // res.send(err);
         // console.log(err);
     });
 });
