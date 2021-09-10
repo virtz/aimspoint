@@ -1,6 +1,6 @@
 const express = require('express');
 // const { send } = require('express/lib/response');
-require('express-async-errors');
+// require('express-async-errors');
 
 
 // const logger = require('./middleware/logger');
