@@ -17,7 +17,7 @@ const Joi = require('joi');
 const error = require('../middleware/error');
 
 module.exports = function(app){
-    app.use(express.json());
+    app.use(express.json({limit:"100mb"}));
 app.use(express.urlencoded({extended:true,limit: '100mb',
 parameterLimit: 100000, }));
 app.use(helmet());
