@@ -113,24 +113,42 @@ function validate(req){
         is_parent:Joi.string().min(3).max(300).required(),
         parent_barcode:Joi.string().min(3).max(300),
         person:Joi.string().min(3).max(300).required(),
-        br_extra1:Joi.string(),
-        br_extra2:Joi.string(),
-        drop1:Joi.string(),
-        drop2:Joi.string(),
-        drop3:Joi.string(),
-        text1:Joi.string(),
-        text2:Joi.string(),
-        text3:Joi.string(),
-        text4:Joi.string(),
-        text5:Joi.string(),
-        text6:Joi.string(),
-        text7:Joi.string(),
-        text8:Joi.string(),
-        photo1:Joi.string(),
-        photo2:Joi.string(),
-        photo3:Joi.string(),
-        photo4:Joi.string(),
-        mode:Joi.string(),
+        br_extra1:Joi.string().empty('')
+        .default('null'),
+        br_extra2:Joi.string().empty('')
+        .default('null'),
+        drop1:Joi.string().empty('')
+        .default('null'),
+        drop2:Joi.string().empty('')
+        .default('null'),
+        drop3:Joi.string().empty('')
+        .default('null'),
+        text1:Joi.string().empty('')
+        .default('null'),
+        text2:Joi.string().empty('')
+        .default('null'),
+        text3:Joi.string().empty('')
+        .default('null'),
+        text4:Joi.string().empty('')
+        .default('null'),
+        text5:Joi.string().empty('')
+        .default('null'),
+        text6:Joi.string().empty('')
+        .default('null'),
+        text7:Joi.string().empty('')
+        .default('null'),
+        text8:Joi.string().empty('')
+        .default('null'),
+        photo1:Joi.string().empty('')
+        .default('null'),
+        photo2:Joi.string().empty('')
+        .default('null'),
+        photo3:Joi.string().empty('')
+        .default('null'),
+        photo4:Joi.string().empty('')
+        .default('null'),
+        mode:Joi.string().empty('')
+        .default('null'),
 
     });
 
