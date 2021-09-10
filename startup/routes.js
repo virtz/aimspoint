@@ -18,7 +18,8 @@ const error = require('../middleware/error');
 
 module.exports = function(app){
     app.use(express.json());
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true,limit: '100mb',
+parameterLimit: 100000, }));
 app.use(helmet());
 app.use('/api/auth', auth);
 app.use('/api/clientlist', clientlist);
