@@ -56,10 +56,10 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
         .input('Text6',sql.VarChar(sql.MAX),req.body.text6)
         .input('Text7',sql.VarChar(sql.MAX),req.body.text7)
         .input('Text8',sql.VarChar(sql.MAX),req.body.text8)
-        .input('Photo1',sql.VarChar(sql.MAX),req.body.phone1)
-        .input('Photo2',sql.VarChar(sql.MAX),req.body.phone2)
-        .input('Photo3',sql.VarChar(sql.MAX),req.body.phone3)
-        .input('Photo4',sql.VarChar(sql.MAX),req.body.phone4)
+        .input('Photo1',sql.VarChar(sql.MAX),req.body.photo1)
+        .input('Photo2',sql.VarChar(sql.MAX),req.body.photo2)
+        .input('Photo3',sql.VarChar(sql.MAX),req.body.photo3)
+        .input('Photo4',sql.VarChar(sql.MAX),req.body.photo4)
         .input('Mode',sql.VarChar(sql.MAX),req.body.mode)
 
         .query(`insert into dbo.Aims_DataCapture Values(
@@ -83,6 +83,7 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
         });
     }).catch((err)=>{
         next(err);
+        // console.log(err);
     });
 });
 
@@ -94,11 +95,11 @@ function validate(req){
         year:Joi.string(),
         data_captured:Joi.string().min(3).max(300).required(),
         last_updated:Joi.string().min(3).max(300).required(),
-        capturedby:Joi.string().min(3).max(300).required(),
-        updatedby:Joi.string().min(3).max(300).required(),
+        captured_by:Joi.string().min(3).max(300).required(),
+        updated_by:Joi.string().min(3).max(300).required(),
         serial_no:Joi.string().min(3).max(300).required(),
         condition:Joi.string(),
-        message:Joi.string().min(3).max(300).required(),
+        message:Joi.string().allow(''),
         site_name:Joi.string().min(3).max(300).required(),
 
         site_address:Joi.string().min(3).max(300).required(),
@@ -106,49 +107,32 @@ function validate(req){
         cost_center:Joi.string(),
         latitude:Joi.string().min(3).max(300).required(),
         longitude:Joi.string().min(3).max(300).required(),
-        map_shape:Joi.string().min(3).max(300).required(),
-        comment:Joi.string().min(3).max(300).required(),
+        map_shape:Joi.string().allow(''),
+        comment:Joi.string().allow(''),
         status:Joi.string().min(3).max(300).required(),
         client:Joi.string().min(3).max(300).required(),
         is_parent:Joi.string().min(3).max(300).required(),
         parent_barcode:Joi.string().min(3).max(300),
         person:Joi.string().min(3).max(300).required(),
-        br_extra1:Joi.string().empty('')
-        .default('null'),
-        br_extra2:Joi.string().empty('')
-        .default('null'),
-        drop1:Joi.string().empty('')
-        .default('null'),
-        drop2:Joi.string().empty('')
-        .default('null'),
-        drop3:Joi.string().empty('')
-        .default('null'),
-        text1:Joi.string().empty('')
-        .default('null'),
-        text2:Joi.string().empty('')
-        .default('null'),
-        text3:Joi.string().empty('')
-        .default('null'),
-        text4:Joi.string().empty('')
-        .default('null'),
-        text5:Joi.string().empty('')
-        .default('null'),
-        text6:Joi.string().empty('')
-        .default('null'),
-        text7:Joi.string().empty('')
-        .default('null'),
-        text8:Joi.string().empty('')
-        .default('null'),
-        photo1:Joi.string().empty('')
-        .default('null'),
-        photo2:Joi.string().empty('')
-        .default('null'),
-        photo3:Joi.string().empty('')
-        .default('null'),
-        photo4:Joi.string().empty('')
-        .default('null'),
-        mode:Joi.string().empty('')
-        .default('null'),
+        br_extra1:Joi.string().allow(''),
+        br_extra2:Joi.string().allow(''),
+        drop1:Joi.string().allow(''),
+        drop2:Joi.string().allow(''),
+        drop3:Joi.string().allow(''),
+        text1:Joi.string().allow(''),
+        text2:Joi.string().allow(''),
+        text3:Joi.string().allow(''),
+        text4:Joi.string().allow(''),
+        text5:Joi.string().allow(''),
+        text6:Joi.string().allow(''),
+        text7:Joi.string().allow(''),
+        text8:Joi.string().allow(''),
+        photo1:Joi.string().allow(''),
+        photo2:Joi.string().allow(''),
+        photo3:Joi.string().allow(''),
+        photo4:Joi.string().empty(''),
+        
+        mode:Joi.string().allow(''),
 
     });
 
