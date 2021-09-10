@@ -83,7 +83,7 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
         });
     }).catch((err)=>{
         // next(err);
-        res.send(err);
+        res.send({"error":err});
         // console.log(err);
     });
 });
