@@ -112,7 +112,7 @@ function validate(req){
         status:Joi.string().min(3).max(300).required(),
         client:Joi.string().min(3).max(300).required(),
         is_parent:Joi.string().min(3).max(300).required(),
-        parent_barcode:Joi.string().min(3).max(300),
+        parent_barcode:Joi.string().allow(''),
         person:Joi.string().min(3).max(300).required(),
         br_extra1:Joi.string().allow(''),
         br_extra2:Joi.string().allow(''),
