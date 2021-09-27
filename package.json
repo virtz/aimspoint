@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js"
+    "start": "node index.js"
   },
-  "engines":{
-    "node":"14.17.5"
+  "engines": {
+    "node": "14.17.5"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +24,8 @@
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mssql": "^7.2.1",
+    "multer": "^1.4.3",
+    "util": "^0.12.4",
     "winston": "^3.3.3"
   }
 }

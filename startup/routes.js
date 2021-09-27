@@ -12,8 +12,12 @@ const user_controller = require('../routes/user_controller');
 const data_capture = require('../routes/data_capture');
 const conditions = require('../routes/asset_condition');
 const site_issues = require('../routes/site_issues');
+const image_upload = require('../routes/image_upload');
+const drop1 = require('../routes/drop1_data');
+const drop2 = require('../routes/drop2_data');
+const drop3 = require('../routes/drop3_data');
 const helmet = require('helmet');
-const Joi = require('joi');
+// const Joi = require('joi');
 const error = require('../middleware/error');
 
 module.exports = function(app){
@@ -34,5 +38,10 @@ app.use('/api/control',user_controller);
 app.use('/api/datacapture',data_capture);
 app.use('/api/condition',conditions);
 app.use('/api/siteissues',site_issues);
+app.use('/api/upload',image_upload);
+app.use('/api/drop1',drop1);
+app.use('/api/drop2',drop2);
+app.use('/api/drop3',drop2);
+
 app.use(error);
 }

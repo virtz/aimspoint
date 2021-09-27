@@ -1,12 +1,12 @@
 // const sql =require('mssql');
 
 const config={
-    server: '172.107.168.89',
+    server: 'THE-REAPER-IN-Y\\SQLEXPRESS',
     // authentication: {
     // },
     user: 'sa',
-    password: 'sqluser10$',
-    database: 'DATACAPTURE',
+    password: '12345678',
+    database: 'AIMSDB',
     options: {
         encrypt: false,
 

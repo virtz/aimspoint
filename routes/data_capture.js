@@ -8,9 +8,11 @@ const router = express.Router();
 const validator = require('../middleware/validate');
 const Joi = require('joi');
 const auth = require('../middleware/auth');
+
 // const connect = require('../db');
 
 router.post('/',auth,validator(validate),async(req,res,next)=>{
+    
     sql.connect(serverconfig).then(()=>{
         // connect();
         var request = new sql.Request();
@@ -87,6 +89,8 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
         // console.log(err);
     });
 });
+
+
 
 function validate(req){
     const schema = Joi.object({
