@@ -3,7 +3,7 @@ const util = require("util");
 
   const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads');
+        cb(null, 'https://aimsassets.com/AppImages');
     },
     filename: (req, file, cb) => {
         console.log(file);
