@@ -42,6 +42,7 @@ app.use('/api/upload',image_upload);
 app.use('/api/drop1',drop1);
 app.use('/api/drop2',drop2);
 app.use('/api/drop3',drop2);
+app.use('/static', express.static('static'));
 
 app.use(error);
 }
