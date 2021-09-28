@@ -90,6 +90,28 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
     });
 });
 
+router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
+    sql.connect(serverconfig).then(()=>{
+        // connect();
+        var request = new sql.Request();
+
+        request
+        .input('Client',sql.VarChar(50),req.body.client)
+        .input('User',sql.VarChar(50),req.body.user)
+        .input('Location',sql.VarChar(50),req.body.location)
+        .query(`select * from dbo.Aims_DataCapture where client=@Client and location=@Location and user=@User `,function(err,data){
+            if (err) console.log(err)
+            var resultLength = Object.values(data.recordset).length;
+            if (resultLength == 0)
+            return res.status(404).json({'error':'Data not found'})
+
+            res.send(data.recordset);
+        });
+    }).catch((err)=>{
+        next(err);
+    });
+});
+
 
 
 function validate(req){
@@ -138,6 +160,17 @@ function validate(req){
         photo4:Joi.string().empty(''),
         
         mode:Joi.string().allow(''),
+
+    });
+
+    return schema.validate(req);
+}
+
+function validateInput(req){
+    const schema = Joi.object({
+        user:Joi.string().min(3).max(300).required(),
+        location:Joi.string().min(3).max(300).required(),
+        client:Joi.string().min(3).max(300).required(),
 
     });
 
