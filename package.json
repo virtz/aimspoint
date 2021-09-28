@@ -19,12 +19,16 @@
     "debug": "^4.3.2",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "fs": "0.0.1-security",
     "helmet": "^4.6.0",
+    "http": "0.0.1-security",
     "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
     "mssql": "^7.2.1",
     "multer": "^1.4.3",
+    "multiparty": "^4.2.2",
+    "request": "^2.88.2",
     "util": "^0.12.4",
     "winston": "^3.3.3"
   }
