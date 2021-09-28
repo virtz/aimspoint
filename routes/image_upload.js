@@ -17,14 +17,13 @@ router.post('/',auth,async(req,res,next)=>{
     var form = new multiparty.Form();
 
     form.parse(req, function(err, fields, files) {
-        res.writeHead(200, {'content-type': 'text/plain'});
+        res.writeHead(200, {'content-type': 'multipart/form-data'});
         res.write('received upload:\n\n');
         res.end(util.inspect({fields: fields, files: files}));
 
-    }).catch((err) => {
-        next(err);
     });
-    form.on('file', function(name, file) {
+
+        form.on('file', function(name, file) {
 
 
     var formData = {
