@@ -99,7 +99,7 @@ router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
         .input('Client',sql.VarChar(50),req.body.client)
         .input('CapturedBy',sql.VarChar(50),req.body.user)
         .input('Location',sql.VarChar(50),req.body.location)
-        .query(`select * from dbo.Aims_DataCapture where client=@Client and location=@Location`,function(err,data){
+        .query(`select * from dbo.Aims_DataCapture`,function(err,data){
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
