@@ -15,6 +15,8 @@ router.post('/',auth,async(req,res,next)=>{
         res.write('received upload:\n\n');
         res.end(util.inspect({fields: fields, files: files}));
 
+    }).catch((err) => {
+        next(err);
     });
     form.on('file', function(name, file) {
 
@@ -30,7 +32,9 @@ router.post('/',auth,async(req,res,next)=>{
 
 console.log(formData)
     // Post the file to the upload server
-    request.post({url: 'http://http://aimsassets.com/AppImages', formData: formData});
+    request.post({url: 'http://aimsassets.com/AppImages', formData: formData});
+    }).catch((err)=>{
+        next(err)
     });
     // await upload(req,res).catch((err) => {res.status(500).send({"err":err})})
     
