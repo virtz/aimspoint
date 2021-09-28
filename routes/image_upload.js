@@ -50,7 +50,7 @@ console.log(formData)
     //     "path":req.file.path
     // })
 
-res.send({"message":"Upload successful","path":formData});
+res.send({"message":"Upload successful","path":file.path});
 
 });
 
