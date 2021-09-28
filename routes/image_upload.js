@@ -30,7 +30,7 @@ router.post('/',auth,async(req,res,next)=>{
       file: {
         value:  fs.createReadStream(file.path),
         options: {
-          filename: file.path+ '_'+ file.originalFilename
+          filename: file.originalFilename
         }
       }
     };
