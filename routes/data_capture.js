@@ -198,6 +198,7 @@ function validate(req){
         Photo4:Joi.string().empty(''),
         
         Mode:Joi.string().allow(''),
+        ID:Joi.string().allow(null)
 
     });
 
