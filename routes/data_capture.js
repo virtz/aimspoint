@@ -197,7 +197,7 @@ function validate(req){
         Photo3:Joi.string().allow(''),
         Photo4:Joi.string().empty(''),
         
-        mode:Joi.string().allow(''),
+        Mode:Joi.string().allow(''),
 
     });
 
