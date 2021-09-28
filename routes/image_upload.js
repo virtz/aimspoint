@@ -18,8 +18,8 @@ router.post('/',auth,async(req,res,next)=>{
 
     form.parse(req, function(err, fields, files) {
         res.writeHead(200, {'content-type': 'multipart/form-data'});
-        res.write('received upload:\n\n');
-        res.end(util.inspect({fields: fields, files: files}));
+        // res.write('received upload:\n\n');
+        // res.end(util.inspect({fields: fields, files: files}));
 
     });
 
