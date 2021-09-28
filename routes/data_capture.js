@@ -99,7 +99,45 @@ router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
         .input('Client',sql.VarChar(50),req.body.client)
         .input('CapturedBy',sql.VarChar(50),req.body.user)
         .input('Location',sql.VarChar(50),req.body.location)
-        .query(`select * from dbo.Aims_DataCapture where client=@Client `,function(err,data){
+        .query(`SELECT [ID]
+        ,[Product]
+        ,[Location]
+        ,[Barcode]
+        ,[Year]
+        ,[DateCaptured]
+        ,[LastUpdated]
+        ,[CapturedBy]
+        ,[UpdatedBy]
+        ,[SerialNo]
+        ,[Condition]
+        ,[Message]
+        ,[SiteName]
+        ,[SiteAddress]
+        ,[CostCenter]
+        ,[Latitude]
+        ,[Longitude]
+        ,[MapShape]
+        ,[Comment]
+        ,[Status]
+        ,[Client]
+        ,[IsParent]
+        ,[ParentBarcode]
+        ,[Person]
+        ,[BrExtra1]
+        ,[BrExtra2]
+        ,[Drop1]
+        ,[Drop2]
+        ,[Drop3]
+        ,[Text1]
+        ,[Text2]
+        ,[Text3]
+        ,[Text4]
+        ,[Text5]
+        ,[Text6]
+        ,[Text7]
+        ,[Text8]
+        ,[Mode]
+    FROM [dbo].[Aims_DataCapture] where client=@Client and location=@Location `,function(err,data){
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
