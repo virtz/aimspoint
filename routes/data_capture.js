@@ -137,7 +137,7 @@ router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
         ,[Text7]
         ,[Text8]
         ,[Mode]
-    FROM [dbo].[Aims_DataCapture] where client=@Client and location=@Location `,function(err,data){
+    FROM [dbo].[Aims_DataCapture] where client=@Client`,function(err,data){
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
