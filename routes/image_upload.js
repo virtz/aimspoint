@@ -4,6 +4,12 @@ const upload = require('../middleware/file_upload.js');
 const validator = require('../middleware/validate');
 const Joi = require('joi');
 const auth = require('../middleware/auth');
+const multiparty = require('multiparty')
+const request = require('request')
+const fs = require('fs')
+const util = require('util')
+const http = require('http');
+
 
 
 router.post('/',auth,async(req,res,next)=>{
