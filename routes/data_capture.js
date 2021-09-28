@@ -18,51 +18,51 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
         var request = new sql.Request();
 
         request
-        .input('Product',sql.VarChar(sql.MAX),req.body.product)
+        .input('Product',sql.VarChar(sql.MAX),req.body.Product)
         .input('Location',sql.VarChar(sql.MAX),req.body.location)
-        .input('Barcode',sql.VarChar(sql.MAX),req.body.barcode)
-        .input('Year',sql.VarChar(sql.MAX),req.body.year)
-        .input('DateCaptured',sql.VarChar(sql.MAX),req.body.data_captured)
-        .input('LastUpdated',sql.VarChar(sql.MAX),req.body.last_updated)
-        .input('CapturedBy',sql.VarChar(sql.MAX),req.body.captured_by)
-        .input('UpdatedBy',sql.VarChar(sql.MAX),req.body.updated_by)
-        .input('SerialNo',sql.VarChar(sql.MAX),req.body.serial_no)
-        .input('Condition',sql.VarChar(sql.MAX),req.body.condition)
-        .input('Message',sql.VarChar(sql.MAX),req.body.message)
-        .input('SiteName',sql.VarChar(sql.MAX),req.body.site_name)
-        .input('SiteAddress',sql.VarChar(sql.MAX),req.body.site_address)
-        .input('CostCenter',sql.VarChar(sql.MAX),req.body.cost_center)
+        .input('Barcode',sql.VarChar(sql.MAX),req.body.Barcode)
+        .input('Year',sql.VarChar(sql.MAX),req.body.Year)
+        .input('DateCaptured',sql.VarChar(sql.MAX),req.body.Data_Captured)
+        .input('LastUpdated',sql.VarChar(sql.MAX),req.body.Last_Updated)
+        .input('CapturedBy',sql.VarChar(sql.MAX),req.body.CapturedBy)
+        .input('UpdatedBy',sql.VarChar(sql.MAX),req.body.UpdatedBy)
+        .input('SerialNo',sql.VarChar(sql.MAX),req.body.SerialNo)
+        .input('Condition',sql.VarChar(sql.MAX),req.body.Condition)
+        .input('Message',sql.VarChar(sql.MAX),req.body.Message)
+        .input('SiteName',sql.VarChar(sql.MAX),req.body.Site_Name)
+        .input('SiteAddress',sql.VarChar(sql.MAX),req.body.Site_Address)
+        .input('CostCenter',sql.VarChar(sql.MAX),req.body.Cost_Center)
         
-        .input('Latitude',sql.VarChar(sql.MAX),req.body.latitude)
-        .input('Longitude',sql.VarChar(sql.MAX),req.body.longitude)
-        .input('MapShape',sql.VarChar(sql.MAX),req.body.map_shape)
-        .input('Comment',sql.VarChar(sql.MAX),req.body.comment)
-        .input('Status',sql.VarChar(sql.MAX),req.body.status)
-        .input('client',sql.VarChar(sql.MAX),req.body.client)
+        .input('Latitude',sql.VarChar(sql.MAX),req.body.Latitude)
+        .input('Longitude',sql.VarChar(sql.MAX),req.body.Longitude)
+        .input('MapShape',sql.VarChar(sql.MAX),req.body.MapShape)
+        .input('Comment',sql.VarChar(sql.MAX),req.body.Comment)
+        .input('Status',sql.VarChar(sql.MAX),req.body.Status)
+        .input('client',sql.VarChar(sql.MAX),req.body.Client)
 
-        .input('IsParent',sql.VarChar(sql.MAX),req.body.is_parent)
+        .input('IsParent',sql.VarChar(sql.MAX),req.body.IsParent)
         // .input('IsParent',sql.VarChar(max),req.body.is_parent)
-        .input('ParentBarcode',sql.VarChar(sql.MAX),req.body.parent_barcode)
-        .input('Person',sql.VarChar(sql.MAX),req.body.person)
-        .input('BrExtra1',sql.VarChar(sql.MAX),req.body.br_extra1)
-        .input('BrExtra2',sql.VarChar(sql.MAX),req.body.br_extra2)
-        .input('Drop1',sql.VarChar(sql.MAX),req.body.drop1)
-        .input('Drop2',sql.VarChar(sql.MAX),req.body.drop2)
-        .input('Drop3',sql.VarChar(sql.MAX),req.body.drop3)
-        .input('Text1',sql.VarChar(sql.MAX),req.body.text1)
-        .input('Text2',sql.VarChar(sql.MAX),req.body.text2)
+        .input('ParentBarcode',sql.VarChar(sql.MAX),req.body.ParentBarcode)
+        .input('Person',sql.VarChar(sql.MAX),req.body.Person)
+        .input('BrExtra1',sql.VarChar(sql.MAX),req.body.BrExtra1)
+        .input('BrExtra2',sql.VarChar(sql.MAX),req.body.BrExtra2)
+        .input('Drop1',sql.VarChar(sql.MAX),req.body.Drop1)
+        .input('Drop2',sql.VarChar(sql.MAX),req.body.Drop2)
+        .input('Drop3',sql.VarChar(sql.MAX),req.body.Drop3)
+        .input('Text1',sql.VarChar(sql.MAX),req.body.Text1)
+        .input('Text2',sql.VarChar(sql.MAX),req.body.Text2)
         
-        .input('Text3',sql.VarChar(sql.MAX),req.body.text3)
-        .input('Text4',sql.VarChar(sql.MAX),req.body.text4)
-        .input('Text5',sql.VarChar(sql.MAX),req.body.text5)
-        .input('Text6',sql.VarChar(sql.MAX),req.body.text6)
-        .input('Text7',sql.VarChar(sql.MAX),req.body.text7)
-        .input('Text8',sql.VarChar(sql.MAX),req.body.text8)
-        .input('Photo1',sql.VarChar(sql.MAX),req.body.photo1)
-        .input('Photo2',sql.VarChar(sql.MAX),req.body.photo2)
-        .input('Photo3',sql.VarChar(sql.MAX),req.body.photo3)
-        .input('Photo4',sql.VarChar(sql.MAX),req.body.photo4)
-        .input('Mode',sql.VarChar(sql.MAX),req.body.mode)
+        .input('Text3',sql.VarChar(sql.MAX),req.body.Text3)
+        .input('Text4',sql.VarChar(sql.MAX),req.body.Text4)
+        .input('Text5',sql.VarChar(sql.MAX),req.body.Text5)
+        .input('Text6',sql.VarChar(sql.MAX),req.body.Text6)
+        .input('Text7',sql.VarChar(sql.MAX),req.body.Text7)
+        .input('Text8',sql.VarChar(sql.MAX),req.body.Text8)
+        .input('Photo1',sql.VarChar(sql.MAX),req.body.Photo1)
+        .input('Photo2',sql.VarChar(sql.MAX),req.body.Photo2)
+        .input('Photo3',sql.VarChar(sql.MAX),req.body.Photo3)
+        .input('Photo4',sql.VarChar(sql.MAX),req.body.Photo4)
+        .input('Mode',sql.VarChar(sql.MAX),req.body.Mode)
 
         .query(`insert into dbo.Aims_DataCapture Values(
     @Product, @Location, @Barcode, @Year,@DateCaptured,@LastUpdated,@CapturedBy,
@@ -154,48 +154,48 @@ router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
 
 function validate(req){
     const schema = Joi.object({
-        product:Joi.string().min(3).max(300).required(),
-        location:Joi.string().min(3).max(300).required(),
-        barcode:Joi.string().min(3).max(300).required(),
-        year:Joi.string(),
-        data_captured:Joi.string().min(3).max(300).required(),
-        last_updated:Joi.string().min(3).max(300).required(),
-        captured_by:Joi.string().min(3).max(300).required(),
-        updated_by:Joi.string().min(3).max(300).required(),
-        serial_no:Joi.string().min(3).max(300).required(),
-        condition:Joi.string(),
-        message:Joi.string().allow(''),
-        site_name:Joi.string().min(3).max(300).required(),
+        Product:Joi.string().min(3).max(300).required(),
+        Location:Joi.string().min(3).max(300).required(),
+        Barcode:Joi.string().min(3).max(300).required(),
+        Year:Joi.string(),
+        Data_Captured:Joi.string().min(3).max(300).required(),
+        Last_Updated:Joi.string().min(3).max(300).required(),
+        CapturedBy:Joi.string().min(3).max(300).required(),
+        UpdatedBy:Joi.string().min(3).max(300).required(),
+        SerialNo:Joi.string().min(3).max(300).required(),
+        Condition:Joi.string(),
+        Message:Joi.string().allow(''),
+        SiteName:Joi.string().min(3).max(300).required(),
 
-        site_address:Joi.string().min(3).max(300).required(),
+        SiteAddress:Joi.string().min(3).max(300).required(),
 
-        cost_center:Joi.string(),
-        latitude:Joi.string().min(3).max(300).required(),
-        longitude:Joi.string().min(3).max(300).required(),
-        map_shape:Joi.string().allow(''),
-        comment:Joi.string().allow(''),
-        status:Joi.string().min(3).max(300).required(),
-        client:Joi.string().min(3).max(300).required(),
-        is_parent:Joi.string().min(3).max(300).required(),
-        parent_barcode:Joi.string().allow(''),
-        person:Joi.string().min(3).max(300).required(),
-        br_extra1:Joi.string().allow(''),
-        br_extra2:Joi.string().allow(''),
-        drop1:Joi.string().allow(''),
-        drop2:Joi.string().allow(''),
-        drop3:Joi.string().allow(''),
-        text1:Joi.string().allow(''),
-        text2:Joi.string().allow(''),
-        text3:Joi.string().allow(''),
-        text4:Joi.string().allow(''),
-        text5:Joi.string().allow(''),
-        text6:Joi.string().allow(''),
-        text7:Joi.string().allow(''),
-        text8:Joi.string().allow(''),
-        photo1:Joi.string().allow(''),
-        photo2:Joi.string().allow(''),
-        photo3:Joi.string().allow(''),
-        photo4:Joi.string().empty(''),
+        CostCenter:Joi.string(),
+        Latitude:Joi.string().min(3).max(300).required(),
+        Longitude:Joi.string().min(3).max(300).required(),
+        MapShape:Joi.string().allow(''),
+        Comment:Joi.string().allow(''),
+        Status:Joi.string().min(3).max(300).required(),
+        Client:Joi.string().min(3).max(300).required(),
+        IsParent:Joi.string().min(3).max(300).required(),
+        ParentBarcode:Joi.string().allow(''),
+        Person:Joi.string().min(3).max(300).required(),
+        BrExtra1:Joi.string().allow(''),
+        BrExtra2:Joi.string().allow(''),
+        Drop1:Joi.string().allow(''),
+        Drop2:Joi.string().allow(''),
+        Drop3:Joi.string().allow(''),
+        Text1:Joi.string().allow(''),
+        Text2:Joi.string().allow(''),
+        Text3:Joi.string().allow(''),
+        Text4:Joi.string().allow(''),
+        Text5:Joi.string().allow(''),
+        Text6:Joi.string().allow(''),
+        Text7:Joi.string().allow(''),
+        Text8:Joi.string().allow(''),
+        Photo1:Joi.string().allow(''),
+        Photo2:Joi.string().allow(''),
+        Photo3:Joi.string().allow(''),
+        Photo4:Joi.string().empty(''),
         
         mode:Joi.string().allow(''),
 
