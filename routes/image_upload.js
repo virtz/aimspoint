@@ -39,7 +39,7 @@ console.log(formData)
     // Post the file to the upload server
     request.post({url: 'http://aimsassets.com/AppImages', formData: formData});
 
-    res.send({"message":"Upload successful","path":"http://aimsassets.com/AppImages/"+file.path});
+    res.send({"message":"Upload successful","path":"http://aimsassets.com/AppImages"+file.path});
     });
     // await upload(req,res).catch((err) => {res.status(500).send({"err":err})})
     
