@@ -19,19 +19,19 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
 
         request
         .input('Product',sql.VarChar(sql.MAX),req.body.Product)
-        .input('Location',sql.VarChar(sql.MAX),req.body.location)
+        .input('Location',sql.VarChar(sql.MAX),req.body.Location)
         .input('Barcode',sql.VarChar(sql.MAX),req.body.Barcode)
         .input('Year',sql.VarChar(sql.MAX),req.body.Year)
         .input('DateCaptured',sql.VarChar(sql.MAX),req.body.Data_Captured)
-        .input('LastUpdated',sql.VarChar(sql.MAX),req.body.Last_Updated)
+        .input('LastUpdated',sql.VarChar(sql.MAX),req.body.LastUpdated)
         .input('CapturedBy',sql.VarChar(sql.MAX),req.body.CapturedBy)
         .input('UpdatedBy',sql.VarChar(sql.MAX),req.body.UpdatedBy)
         .input('SerialNo',sql.VarChar(sql.MAX),req.body.SerialNo)
         .input('Condition',sql.VarChar(sql.MAX),req.body.Condition)
         .input('Message',sql.VarChar(sql.MAX),req.body.Message)
-        .input('SiteName',sql.VarChar(sql.MAX),req.body.Site_Name)
-        .input('SiteAddress',sql.VarChar(sql.MAX),req.body.Site_Address)
-        .input('CostCenter',sql.VarChar(sql.MAX),req.body.Cost_Center)
+        .input('SiteName',sql.VarChar(sql.MAX),req.body.SiteName)
+        .input('SiteAddress',sql.VarChar(sql.MAX),req.body.SiteAddress)
+        .input('CostCenter',sql.VarChar(sql.MAX),req.body.CostCenter)
         
         .input('Latitude',sql.VarChar(sql.MAX),req.body.Latitude)
         .input('Longitude',sql.VarChar(sql.MAX),req.body.Longitude)
@@ -137,7 +137,7 @@ router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
         ,[Text7]
         ,[Text8]
         ,[Mode]
-    FROM [dbo].[Aims_DataCapture] where client=@Client`,function(err,data){
+    FROM [dbo].[Aims_DataCapture] where client=@Client and location=@Location and capturedby=@CapturedBy`,function(err,data){
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
