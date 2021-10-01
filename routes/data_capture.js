@@ -195,13 +195,13 @@ router.post('/findCopy',auth,validator(validateInput2),async(req,res,next)=>{
         ,[Text7]
         ,[Text8]
         ,[Mode]
-    FROM [dbo].[Aims_DataCapture] where client=@Client and barcodde=@Barcode`,function(err,data){
+    FROM [dbo].[Aims_DataCapture] where client=@Client and barcode=@Barcode`,function(err,data){
             if (err) console.log(err)
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
             return res.status(404).json({'error':'Data not found'})
 
-            res.send(data.recordset);
+            res.send({"message":true});
         });
     }).catch((err)=>{
         next(err);
