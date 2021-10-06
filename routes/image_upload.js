@@ -14,43 +14,43 @@ const http = require('http');
 
 router.post('/',auth,async(req,res,next)=>{
   
-    var form = new multiparty.Form();
+//     var form = new multiparty.Form();
 
-    form.parse(req, function(err, fields, files) {
-        // res.writeHead(200, {'content-type': 'multipart/form-data'});
-        // res.write('received upload:\n\n');
-        // res.end(util.inspect({fields: fields, files: files}));
+//     form.parse(req, function(err, fields, files) {
+//         // res.writeHead(200, {'content-type': 'multipart/form-data'});
+//         // res.write('received upload:\n\n');
+//         // res.end(util.inspect({fields: fields, files: files}));
 
-    });
+//     });
 
-        form.on('file', function(name, file) {
+//         form.on('file', function(name, file) {
 
 
-    var formData = {
-      file: {
-        value:  fs.createReadStream(file.path),
-        options: {
-          filename: file.originalFilename
-        }
-      }
-    };
+//     var formData = {
+//       file: {
+//         value:  fs.createReadStream(file.path),
+//         options: {
+//           filename: file.originalFilename
+//         }
+//       }
+//     };
 
-console.log(formData)
-    // Post the file to the upload server
-    request.post({url: 'http://aimsassets.com/AppImages', formData: formData});
+// console.log(formData)
+//     // Post the file to the upload server
+//     request.post({url: 'http://aimsassets.com/AppImages', formData: formData});
 
-    res.send({"message":"Upload successful","path":"http://aimsassets.com/AppImages"+file.path});
-    });
-    // await upload(req,res).catch((err) => {res.status(500).send({"err":err})})
+//     res.send({"message":"Upload successful","path":"http://aimsassets.com/AppImages"+file.path});
+//     });
+    await upload(req,res).catch((err) => {res.status(500).send({"err":err})})
     
-    // // .catch((err) => {next(err)});
-    // if(req.file ==undefined){
-    //     return res.status(400).send({"message":"Please upload file"});
-    // }
-    // res.status(200).send({
-    //     "message":"Upload successful",
-    //     "path":req.file.path
-    // })
+    // .catch((err) => {next(err)});
+    if(req.file ==undefined){
+        return res.status(400).send({"message":"Please upload file"});
+    }
+    res.status(200).send({
+        "message":"Upload successful",
+        "path":req.file.path
+    })
 
 
 
