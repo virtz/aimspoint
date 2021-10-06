@@ -220,7 +220,7 @@ function validate(req){
         LastUpdated:Joi.string().min(3).max(300).required(),
         CapturedBy:Joi.string().min(3).max(300).required(),
         UpdatedBy:Joi.string().min(3).max(300).required(),
-        SerialNo:Joi.string().min(3).max(300).required(),
+        SerialNo:Joi.string().max(300).required(),
         Condition:Joi.string(),
         Message:Joi.string().allow(''),
         SiteName:Joi.string().min(3).max(300).required(),
