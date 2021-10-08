@@ -71,13 +71,10 @@ form.on('error', function(error) {
     next(error);
 });
 
-form.on('close', function(name,file) {
-   res.send({"message":"Uplaod successful","path":file.path});
-});
+// form.on('close', function(name,file) {
+//    res.send({"message":"Uplaod successful","path":file.path});
+// });
 
-// form.on(file,function(name,file){
-//     res.send(file.path);
-// })
 form.parse(req, function(err, fields, files) {
     res.writeHead(200, {'content-type': 'text/plain'});
     res.write('received upload:\n\n');
