@@ -77,9 +77,10 @@ form.on('error', function(error) {
 
 form.parse(req, function(err, fields, files) {
     res.writeHead(200, {'content-type': 'text/plain'});
-    res.write('received upload:\n\n');
+    res.write('received upload:\n');
     res.end(util.inspect({fields: fields, files: files}));
 });
+console.log(res);
 });
 
 
