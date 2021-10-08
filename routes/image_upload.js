@@ -78,13 +78,16 @@ form.on('error', function(error) {
 form.on('file', function(name,file) {
     console.log(file);
     console.log(name);
+    res.send({"message":"upload successful","file":file})
 });
 
-form.parse(req, function(err, fields, files) {
-    res.writeHead(200, {'content-type': 'text/plain'});
-    res.write('received upload:\n');
-    res.end(util.inspect({fields: fields, files: files}));
-});
+// form.parse(req, function(err, fields, files) {
+//     res.writeHead(200, {'content-type': 'text/plain'});
+//     res.write('received upload:\n');
+//     res.end(util.inspect({fields: fields, files: files}));
+// });
+form.parse(req);
+
 // console.log(res);
 });
 
