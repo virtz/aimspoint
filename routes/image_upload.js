@@ -41,19 +41,45 @@ router.post('/',auth,async(req,res,next)=>{
 
 //     res.send({"message":"Upload successful","path":"http://aimsassets.com/AppImages"+file.path});
 //     });
-    await upload(req,res).catch((err) => {res.status(500).send({"err":err})})
-    
-    // .catch((err) => {next(err)});
-    if(req.file ==undefined){
-        return res.status(400).send({"message":"Please upload file"});
-    }
-    res.status(200).send({
-        "message":"Upload successful",
-        "path":req.file.path
-    })
+  
+var form = new multiparty.Form();
 
+form.on('part', function(formPart) {
+    var contentType = formPart.headers['content-type'];
 
+    var formData = {
+        file: {
+            value: formPart,
+            options: {
+                filename: formPart.filename,
+                contentType: contentType,
+                knownLength: formPart.byteCount
+            }
+        }
+    };
 
+    request.post({
+        url: 'http://aimsassets.com/AppImages',
+        formData: formData,
+
+        // These may or may not be necessary for your server:
+        preambleCRLF: true,
+        postambleCRLF: true
+    });
+});
+form.on('error', function(error) {
+    next(error);
+});
+
+form.on('close', function() {
+   res.send('received upload');
+});
+
+form.parse(req, function(err, fields, files) {
+    res.writeHead(200, {'content-type': 'text/plain'});
+    res.write('received upload:\n\n');
+    res.end(util.inspect({fields: fields, files: files}));
+});
 });
 
 
