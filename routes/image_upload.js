@@ -72,15 +72,20 @@ form.on('error', function(error) {
 });
 
 // form.on('close', function(name,file) {
-//    res.send({"message":"Uplaod successful","path":file.path});
+//    res.send({"message":"Uplaod successful","path":file});
 // });
+
+form.on('file', function(name,file) {
+    console.log(file);
+    console.log(name);
+});
 
 form.parse(req, function(err, fields, files) {
     res.writeHead(200, {'content-type': 'text/plain'});
     res.write('received upload:\n');
     res.end(util.inspect({fields: fields, files: files}));
 });
-console.log(res);
+// console.log(res);
 });
 
 
