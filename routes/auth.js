@@ -18,6 +18,9 @@ router.post('/',validator(validate) ,async(req, res,next) => {
         .input('Password',sql.VarChar(50), req.body.password)
         .query(`select * from dbo.Aims_Users where loginName=@Name and password=@Password`,function(err,data){
             if (err) console.log(err)
+            if(data==undefined){
+                return res.status(400).send({'error':"An error occured"});
+            }
             var resultLength = Object.values(data.recordset).length;
             if(resultLength ==0){
                 

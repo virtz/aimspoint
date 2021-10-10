@@ -75,6 +75,9 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
      @Mode)
         `,function(err,data){
             if (err) console.log(err)
+            if(data==undefined){
+                return res.status(400).send({'error':"An error occured"});
+            }
             var resultLength = Object.values(data.rowsAffected).length;
             if (resultLength == 0)
             return res.status(404).json({'error':'An error occured'})
@@ -139,6 +142,9 @@ router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
         ,[Mode]
     FROM [dbo].[Aims_DataCapture] where client=@Client and location=@Location and capturedby=@CapturedBy`,function(err,data){
             if (err) console.log(err)
+            if(data==undefined){
+                return res.status(400).send({'error':"An error occured"});
+            }
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
             return res.status(404).json({'error':'Data not found'})
@@ -197,6 +203,9 @@ router.post('/findCopy',auth,validator(validateInput2),async(req,res,next)=>{
         ,[Mode]
     FROM [dbo].[Aims_DataCapture] where client=@Client and barcode=@Barcode`,function(err,data){
             if (err) console.log(err)
+            if(data==undefined){
+                return res.status(400).send({'error':"An error occured"});
+            }
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
             return res.status(404).json({'error':'Data not found'})

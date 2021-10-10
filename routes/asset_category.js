@@ -18,6 +18,9 @@ router.post('/',auth,validator(validate),async(req, res,next)=>{
         .input('Client',sql.VarChar(200),req.body.client)
         .query(`select * from dbo.Aims_AssetCategory where client=@Client`,function(err,data){
             if (err) console.log(err)
+            if(data==undefined){
+                return res.status(400).send({'error':"An error occured"});
+            }
             var resultLength = Object.values(data.recordset).length;
             if (resultLength == 0)
             return res.status(404).json({'error':'Data not found'})
