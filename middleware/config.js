@@ -5,8 +5,14 @@ const config={
     // authentication: {
     // },
     user: 'sa',
+    requestTimeout: 300000,
     password: 'sqluser10$',
     database: 'DATACAPTURE',
+    pool: {
+        max: 10,
+        min: 0,
+        idleTimeoutMillis: 30000
+      },
     options: {
         encrypt: false,
 
