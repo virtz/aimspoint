@@ -1,7 +1,7 @@
 
-const sql =require('mssql');
+const sql = require('mssql');
 
-const config={
+const config = {
     server: 'THE-REAPER-IN-Y\\SQLEXPRESS',
     // authentication: {
     // },
@@ -15,16 +15,16 @@ const config={
 }
 
 
- var connect = function(req,res,next) {
-    sql.connect(config,function (err) {
+var connect = function (req, res, next) {
+    sql.connect(config, function (err) {
         if (err) console.log(err.message);
         console.log('connnected to db')
         next();
-    
+
     },
     );
-    
- 
+
+
 }
 
 // module.exports = config;

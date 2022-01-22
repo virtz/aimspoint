@@ -1,6 +1,6 @@
 // const sql =require('mssql');
 
-const config={
+const config = {
     server: '172.107.168.89',
     // authentication: {
     // },
@@ -12,11 +12,24 @@ const config={
         max: 10,
         min: 0,
         idleTimeoutMillis: 30000
-      },
+    },
     options: {
         encrypt: false,
 
     },
 }
 
-module.exports =  config;
+// const config = {
+//     server: 'THE-REAPER-IN-Y\\SQLEXPRESS',
+//     // authentication: {
+//     // },
+//     user: 'sa',
+//     password: 'password',
+//     database: 'AIMSDB',
+//     options: {
+//         encrypt: false,
+
+//     },
+// }
+
+module.exports = config;
