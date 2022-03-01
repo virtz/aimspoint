@@ -93,6 +93,7 @@ router.post('/',auth,validator(validate),async(req,res,next)=>{
     });
 });
 
+
 router.post('/fetch',auth,validator(validateInput),async(req,res,next)=>{
     sql.connect(serverconfig).then(()=>{
         // connect();
