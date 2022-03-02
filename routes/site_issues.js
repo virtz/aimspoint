@@ -4,7 +4,7 @@ const serverconfig = require('../middleware/config')
 const router = express.Router();
 // const connect = require('../db');
 
-router.get('/', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     sql.connect(serverconfig).then(() => {
         // connect();
         var request = new sql.Request();
