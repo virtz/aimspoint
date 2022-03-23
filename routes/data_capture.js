@@ -219,7 +219,7 @@ router.post('/findCopy', auth, validator(validateInput2), async (req, res, next)
     });
 });
 
-router.post('/delete', auth, validator(validate), async (req, res, next) => {
+router.post('/delete', auth, validator(validateInput2), async (req, res, next) => {
 
     sql.connect(serverconfig).then(() => {
         // connect();
