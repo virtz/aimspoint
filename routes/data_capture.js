@@ -298,7 +298,9 @@ function validate(req) {
         Photo4: Joi.string().empty(''),
 
         Mode: Joi.string().allow(''),
-        ID: Joi.string().allow(null)
+        ID: Joi.string().allow(null),
+        IsEdited:Joi.boolean.allow(null),
+        IsFromAudti:Joi.boolean.allow(null)
 
     });
 
