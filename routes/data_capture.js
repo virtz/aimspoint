@@ -300,7 +300,7 @@ function validate(req) {
         Mode: Joi.string().allow(''),
         ID: Joi.string().allow(null),
         IsEdited:Joi.boolean.allow(null),
-        IsFromAudti:Joi.boolean.allow(null)
+        IsFromAudit:Joi.boolean.allow()
 
     });
 
