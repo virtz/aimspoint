@@ -76,7 +76,7 @@ router.post('/', auth, validator(validate), async (req, res, next) => {
         `, function (err, data) {
                 if (err) console.log(err)
                 if (data == undefined) {
-                    return res.status(400).send({ 'error': "An error occured" });
+                    return res.status(400).send({ 'error': err });
                 }
                 var resultLength = Object.values(data.rowsAffected).length;
                 if (resultLength == 0)
@@ -299,8 +299,8 @@ function validate(req) {
 
         Mode: Joi.string().allow(''),
         ID: Joi.string().allow(null),
-        IsEdited:Joi.boolean().allow(null),
-        IsFromAudit:Joi.boolean().allow(null)
+        IsEdited: Joi.boolean().allow(null),
+        IsFromAudit: Joi.boolean().allow(null)
 
     });
 
