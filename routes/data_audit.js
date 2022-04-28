@@ -31,7 +31,7 @@ router.post('/', validator(validate), async (req, res, next) => {
     });
 });
 
-router.post('/', auth, validator(validate1), async (req, res, next) => {
+router.post('/find', auth, validator(validate1), async (req, res, next) => {
     sql.connect(serverconfig).then(() => {
         // connect();
         var request = new sql.Request();
