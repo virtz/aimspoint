@@ -31,7 +31,39 @@ router.post('/', validator(validate), async (req, res, next) => {
     });
 });
 
+router.post('/', auth, validator(validate1), async (req, res, next) => {
+    sql.connect(serverconfig).then(() => {
+        // connect();
+        var request = new sql.Request();
 
+        request
+            .input('Client', sql.VarChar(200), req.body.client)
+        input('Code', sql.VarChar(200), req.body.client)
+            .query(`select distinct * from dbo.Aims_AssetName where client=@Client and p_Code=@Code`, function (err, data) {
+                if (err) console.log(err)
+                if (data == undefined) {
+                    return res.status(400).send({ 'error': "An error occured" });
+                }
+                var resultLength = Object.values(data.recordset).length;
+                if (resultLength == 0)
+                    return res.status(404).json({ 'error': 'Data not found' })
+
+                res.send(data.recordset);
+            });
+    }).catch((err) => {
+        next(err);
+    });
+});
+
+function validate1(req) {
+    const schema = Joi.object({
+        client: Joi.string().min(3).max(200).required(),
+        code: Joi.string().min(3).max(200).required()
+
+    });
+
+    return schema.validate(req);
+}
 function validate(req) {
     const schema = Joi.object({
         barcode: Joi.string().min(3).max(200).required(),
