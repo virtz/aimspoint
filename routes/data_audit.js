@@ -39,7 +39,7 @@ router.post('/find', auth, validator(validate1), async (req, res, next) => {
         request
             .input('Client', sql.VarChar(200), req.body.client)
             .input('Code', sql.VarChar(200), req.body.client)
-            .query(`select * from dbo.Aims_AssetName where client=@Client and p_Code=@Code`, function (err, data) {
+            .query(`select distinct * from dbo.Aims_AssetName where client=@Client and P_Code=@Code`, function (err, data) {
                 if (err) console.log(err)
                 if (data == undefined) {
                     return res.status(400).send({ 'error': "An error occured" });
