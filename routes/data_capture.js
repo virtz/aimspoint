@@ -22,7 +22,7 @@ router.post('/', auth, validator(validate), async (req, res, next) => {
             .input('Location', sql.VarChar(sql.MAX), req.body.Location)
             .input('Barcode', sql.VarChar(sql.MAX), req.body.Barcode)
             .input('Year', sql.VarChar(sql.MAX), req.body.Year)
-            .input('DateCaptured', sql.VarChar(sql.MAX), req.body.Data_Captured)
+            .input('DateCaptured', sql.VarChar(sql.MAX), req.body.DateCaptured)
             .input('LastUpdated', sql.VarChar(sql.MAX), req.body.LastUpdated)
             .input('CapturedBy', sql.VarChar(sql.MAX), req.body.CapturedBy)
             .input('UpdatedBy', sql.VarChar(sql.MAX), req.body.UpdatedBy)
